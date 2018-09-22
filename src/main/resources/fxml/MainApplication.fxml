@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Label?>
+<BorderPane stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="fr.sebastien.criquet.view.MainApplication">
+    <left>
+        <Label fx:id="tata" id="test" text="salut !"/>
+    </left>
+</BorderPane>
