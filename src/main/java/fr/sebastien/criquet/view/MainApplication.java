@@ -30,7 +30,6 @@ public class MainApplication {
 
         img.indexProperty().addListener((obs, oldV, newV) -> {
             try {
-
                 BackgroundImage bg = new BackgroundImage(new Image(img.get(newV.intValue()).getRessource(), background.getWidth(),background.getHeight(),true,true),
                         BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                         BackgroundSize.DEFAULT);
