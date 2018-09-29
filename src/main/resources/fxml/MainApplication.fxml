@@ -28,7 +28,7 @@
         <BorderPane>
             <top>
                 <HBox maxWidth="420" minHeight="10" BorderPane.alignment="CENTER">
-                    <Label text="Pseudo:" textFill="WHITE">
+                    <Label text="Pseudo:">
                         <font><Font size="25.0" /></font>
                     </Label>
                     <TextField fx:id="pseudo" prefHeight="37.0">
@@ -42,13 +42,13 @@
                 </HBox>
             </top>
             <center>
-                <ProgressBar fx:id="progress" minWidth="420" progress="0.36" BorderPane.alignment="CENTER">
+                <ProgressBar fx:id="progress" minWidth="420" progress="0.0" BorderPane.alignment="CENTER">
                     <effect><Glow /></effect>
                     <BorderPane.margin><Insets /></BorderPane.margin>
                 </ProgressBar>
             </center>
             <bottom>
-                <Label minWidth="420" text="le serveur télécharge blblblblblbl" textFill="WHITE" BorderPane.alignment="CENTER">
+                <Label fx:id="indicator" minWidth="420" textFill="WHITE" BorderPane.alignment="CENTER">
                    <BorderPane.margin><Insets bottom="10.0" top="5.0" /></BorderPane.margin>
                 </Label>
             </bottom>

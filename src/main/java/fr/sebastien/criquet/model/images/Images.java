@@ -1,4 +1,4 @@
-package fr.sebastien.criquet.model;
+package fr.sebastien.criquet.model.images;
 
 import fr.sebastien.criquet.application.Main;
 import fr.sebastien.criquet.exception.ImageNotFoundException;

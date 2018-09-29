@@ -1,3 +1,7 @@
 #header {
     -fx-padding: 20;
 }
+
+#test {
+    -fx-background-color: red;
+}

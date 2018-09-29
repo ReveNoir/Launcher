@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="background" minHeight="300" minWidth="525" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.sebastien.criquet.view.MainApplication">
+<BorderPane fx:id="background" minHeight="286.0" minWidth="509.0" prefHeight="286.0" prefWidth="509.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.sebastien.criquet.view.MainApplication">
     <top>
         <BorderPane>
-            <center>
-                <Pane minHeight="40" />
-            </center>
             <bottom>
                 <ImageView id="header" fitHeight="104.0" fitWidth="453.0" preserveRatio="true" BorderPane.alignment="CENTER">
                     <Image url="@../images/text/header.png" />
+                    <BorderPane.margin><Insets top="40.0" /></BorderPane.margin>
                 </ImageView>
             </bottom>
         </BorderPane>
@@ -25,14 +27,30 @@
     <bottom>
         <BorderPane>
             <top>
-                <ProgressBar fx:id="progress" minWidth="500" progress="0.36" BorderPane.alignment="CENTER">
-                    <effect>
-                        <Glow />
-                    </effect>
-                </ProgressBar>
+                <HBox maxWidth="420" minHeight="10" BorderPane.alignment="CENTER">
+                    <Label text="Pseudo:">
+                        <font><Font size="25.0" /></font>
+                    </Label>
+                    <TextField fx:id="pseudo" prefHeight="37.0">
+                        <HBox.margin><Insets left="15.0" /></HBox.margin>
+                    </TextField>
+                    <Button onAction="#play" prefHeight="37.0" prefWidth="123.0" text="Jouer">
+                        <HBox.margin><Insets left="20.0" /></HBox.margin>
+                        <font><Font size="16.0" /></font>
+                    </Button>
+                    <BorderPane.margin><Insets bottom="20.0" /></BorderPane.margin>
+                </HBox>
             </top>
+            <center>
+                <ProgressBar fx:id="progress" minWidth="420" progress="0.0" BorderPane.alignment="CENTER">
+                    <effect><Glow /></effect>
+                    <BorderPane.margin><Insets /></BorderPane.margin>
+                </ProgressBar>
+            </center>
             <bottom>
-                <Pane minHeight="20" />
+                <Label fx:id="indicator" minWidth="420" textFill="WHITE" BorderPane.alignment="CENTER">
+                   <BorderPane.margin><Insets bottom="10.0" top="5.0" /></BorderPane.margin>
+                </Label>
             </bottom>
         </BorderPane>
     </bottom>

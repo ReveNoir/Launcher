@@ -1,7 +1,7 @@
 package fr.sebastien.criquet.data;
 
-import fr.sebastien.criquet.model.Image;
-import fr.sebastien.criquet.model.Images;
+import fr.sebastien.criquet.model.images.Image;
+import fr.sebastien.criquet.model.images.Images;
 
 public class Stub {
 

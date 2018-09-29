@@ -1,6 +1,6 @@
 package fr.sebastien.criquet.runnable;
 
-import fr.sebastien.criquet.model.Images;
+import fr.sebastien.criquet.model.images.Images;
 
 import java.util.Timer;
 import java.util.TimerTask;
