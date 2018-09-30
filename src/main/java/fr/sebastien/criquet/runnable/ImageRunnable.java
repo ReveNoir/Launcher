@@ -18,7 +18,7 @@ public class ImageRunnable implements Runnable {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             public void run() {
-                images.newIndex(random(1, 24));
+                images.newIndex(random(1, 23));
             }
         }, 0, (60*1000));
 

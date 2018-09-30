@@ -3,6 +3,7 @@ package fr.sebastien.criquet.thread;
 import fr.sebastien.criquet.application.Main;
 import fr.sebastien.criquet.model.launcher.Launcher;
 import fr.theshark34.openlauncherlib.util.Saver;
+import javafx.application.Platform;
 import javafx.scene.control.Alert;
 
 public class LauncherThread extends Thread {
@@ -27,6 +28,11 @@ public class LauncherThread extends Thread {
             saver.save();
         } catch (Exception e) {
             Main.logger.error(e.getMessage());
+            Platform.runLater(() -> {
+                Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage());
+                alert.setHeaderText(null);
+                alert.show();
+            });
         }
     }
 

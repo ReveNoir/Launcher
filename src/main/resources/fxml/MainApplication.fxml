@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="background" minHeight="286.0" minWidth="509.0" prefHeight="286.0" prefWidth="509.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.sebastien.criquet.view.MainApplication">
+<BorderPane fx:id="background" minHeight="286.0" minWidth="509.0" prefHeight="286.0" prefWidth="509.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.sebastien.criquet.view.MainApplication">
     <top>
         <BorderPane>
             <bottom>
@@ -28,11 +28,11 @@
         <BorderPane>
             <top>
                 <HBox maxWidth="420" minHeight="10" BorderPane.alignment="CENTER">
-                    <Label text="Pseudo:">
+                    <Label text="Pseudo:" minWidth="100">
                         <font><Font size="25.0" /></font>
                     </Label>
                     <TextField fx:id="pseudo" prefHeight="37.0">
-                        <HBox.margin><Insets left="15.0" /></HBox.margin>
+                        <HBox.margin><Insets left="35.0" /></HBox.margin>
                     </TextField>
                     <Button onAction="#play" prefHeight="37.0" prefWidth="123.0" text="Jouer">
                         <HBox.margin><Insets left="20.0" /></HBox.margin>

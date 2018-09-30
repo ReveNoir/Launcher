@@ -14,7 +14,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
 import java.io.File;
@@ -41,7 +40,7 @@ public class MainApplication {
 
         img.indexProperty().addListener((obs, oldV, newV) -> {
             try {
-                BackgroundImage bg = new BackgroundImage(new Image(img.get(newV.intValue()).getRessource(), background.getWidth(),background.getHeight(),true,true),
+                BackgroundImage bg = new BackgroundImage(new Image(img.get(newV.intValue()).getRessource(), background.getWidth(), background.getHeight(),false,true),
                         BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                         BackgroundSize.DEFAULT);
 

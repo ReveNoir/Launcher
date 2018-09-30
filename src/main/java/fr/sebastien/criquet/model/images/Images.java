@@ -22,26 +22,9 @@ public class Images {
         images.add(new Image(name));
     }
 
-    public void previous() {
-        if(getIndex() - 1 > 0){
-            setIndex(getIndex() - 1);
-        }
-    }
-
-    public void next() {
-        if(getIndex() + 1 < images.size()){
-            setIndex(getIndex() + 1);
-        } else {
-            reset();
-        }
-    }
-
     public void newIndex(int index) {
         setIndex(index);
-    }
-
-    private void reset() {
-        setIndex(0);
+        Main.logger.debug("Loaded new image with name: {}", index);
     }
 
     public Image get(int index) throws ImageNotFoundException {

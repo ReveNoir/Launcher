@@ -14,10 +14,10 @@ import java.util.UUID;
 
 public class Launcher {
 
-    private final String URL = "http://localhost/index.php/";
+    private final String URL = "http://localhost/edenia/";
 
     private final GameVersion GAME_VERSION = new GameVersion("1.12.2", GameType.V1_8_HIGHER);
-    private final GameInfos GAME_INFOS = new GameInfos("Edenia", GAME_VERSION, new GameTweak[]{ GameTweak.FORGE });
+    private final GameInfos GAME_INFOS = new GameInfos("edenia", GAME_VERSION, new GameTweak[]{ GameTweak.FORGE });
     private final File DIR = GAME_INFOS.getGameDir();
 
     private AuthInfos authInfos;
@@ -35,6 +35,7 @@ public class Launcher {
 
     public void update() throws Exception {
         SUpdate sUpdate = new SUpdate(URL, DIR);
+        sUpdate.getServerRequester().setRewriteEnabled(true);
         sUpdate.addApplication(new FileDeleter());
 
         update = new SupdateThread(main.getProgress(), main.getIndicator());
@@ -50,11 +51,14 @@ public class Launcher {
         ExternalLauncher launcher = new ExternalLauncher(profile);
         Process process = launcher.launch();
 
-        System.exit(1);
-    }
+        try{
+            Thread.sleep(5000L);
+            process.waitFor();
+        }catch(InterruptedException e){
+            e.printStackTrace();
+        }
 
-    public void interruptThread(){
-        update.interrupt();
+        System.exit(0);
     }
 
     public File getDir() {
