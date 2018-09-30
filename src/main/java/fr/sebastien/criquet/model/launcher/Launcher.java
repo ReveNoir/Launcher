@@ -42,7 +42,6 @@ public class Launcher {
         update.start();
 
         sUpdate.start();
-        update.interrupt();
     }
 
     public void launch() throws LaunchException {

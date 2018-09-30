@@ -64,7 +64,6 @@ public class MainApplication {
 
         Thread launch = new LauncherThread(launcher, pseudo.getText(), saver);
         launch.start();
-
     }
 
     public ProgressBar getProgress() {
