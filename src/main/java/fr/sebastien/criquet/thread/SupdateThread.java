@@ -1,6 +1,5 @@
 package fr.sebastien.criquet.thread;
 
-import fr.sebastien.criquet.application.Main;
 import fr.theshark34.supdate.BarAPI;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
@@ -23,19 +22,24 @@ public class SupdateThread extends Thread {
     public void run() {
         while(!isInterrupted()) {
             if(BarAPI.getNumberOfFileToDownload() == 0){
-                indicator.setText("Verifying files ...");
+                Platform.runLater(() -> indicator.setText("Verifying files ..."));
                 continue;
             }
 
             val = (int) (BarAPI.getNumberOfTotalDownloadedBytes() / 1000);
             max = (int) (BarAPI.getNumberOfTotalBytesToDownload() / 1000);
 
-            Platform.runLater(() -> {
-                progress.setProgress(val);
+            double percent = Math.floor((double) val / max * 1000) / 10;
 
-                System.out.println(val + " -> " + max);
-                indicator.setText("Download " + BarAPI.getNumberOfDownloadedFiles() + " / " + BarAPI.getNumberOfFileToDownload());
+            System.out.println("avant");
+
+            Platform.runLater(() -> {
+                System.out.println("pendant");
+                progress.setProgress((double) val / max);
+                indicator.setText("Download " + BarAPI.getNumberOfDownloadedFiles() + " / " + BarAPI.getNumberOfFileToDownload() + " " + percent);
             });
+
+            System.out.println("apres");
 
         }
     }

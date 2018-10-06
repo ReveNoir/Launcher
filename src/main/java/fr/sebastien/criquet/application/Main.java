@@ -11,17 +11,19 @@ import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 public class Main extends Application {
 
-    private final String VERSION = "1.0";
     public final static Logger logger = LoggerFactory.getLogger("EdeniaCraft");
 
     @Override
     public void start(Stage stage) throws Exception {
-        PropertyConfigurator.configure(getClass().getResource("/log4j/log4j.properties").getPath());
+        PropertyConfigurator.configure(getClass().getResourceAsStream("/log4j/log4j.properties"));
         Stub.initData();
 
-        stage.setTitle("Edenia Launcher " + VERSION);
+        Platform.setImplicitExit(false);
+
+        stage.setTitle("EdeniaCraft Launcher");
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/fxml/MainApplication.fxml"))));
 
         stage.setOnCloseRequest(__ -> {
