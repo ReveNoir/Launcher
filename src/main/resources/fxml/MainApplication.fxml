@@ -10,9 +10,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="background" minHeight="286.0" minWidth="509.0" prefHeight="286.0" prefWidth="509.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.sebastien.criquet.view.MainApplication">
+<BorderPane fx:id="background" minHeight="286.0" minWidth="509.0" prefHeight="286.0" prefWidth="509.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.sebastien.criquet.view.MainApplication">
     <top>
         <BorderPane>
             <bottom>
@@ -28,29 +29,43 @@
         <BorderPane>
             <top>
                 <HBox maxWidth="420" minHeight="10" BorderPane.alignment="CENTER">
-                    <Label text="Pseudo:" minWidth="100">
-                        <font><Font size="25.0" /></font>
-                    </Label>
-                    <TextField fx:id="pseudo" prefHeight="37.0">
-                        <HBox.margin><Insets left="35.0" /></HBox.margin>
+                    <ImageView id="header" fitHeight="65.0" fitWidth="94.0" preserveRatio="true" BorderPane.alignment="CENTER">
+                        <Image url="@../images/text/pseudo.png" />
+                        <BorderPane.margin><Insets top="40.0" /></BorderPane.margin>
+                    </ImageView>
+
+                    <TextField fx:id="pseudo" prefHeight="37.0" prefWidth="191.0">
+                        <HBox.margin><Insets left="10.0" right="10.0" /></HBox.margin>
                     </TextField>
                     <Button onAction="#play" prefHeight="37.0" prefWidth="123.0" text="Jouer">
-                        <HBox.margin><Insets left="20.0" /></HBox.margin>
+                        <HBox.margin><Insets /></HBox.margin>
                         <font><Font size="16.0" /></font>
                     </Button>
                     <BorderPane.margin><Insets bottom="20.0" /></BorderPane.margin>
                 </HBox>
             </top>
             <center>
-                <ProgressBar fx:id="progress" minWidth="420" progress="0.0" BorderPane.alignment="CENTER">
-                    <effect><Glow /></effect>
-                    <BorderPane.margin><Insets /></BorderPane.margin>
-                </ProgressBar>
+                <VBox minWidth="420">
+                    <ProgressBar fx:id="progress" minWidth="420" progress="0.0" BorderPane.alignment="CENTER">
+                        <effect><Glow /></effect>
+                        <BorderPane.margin><Insets /></BorderPane.margin>
+                      <VBox.margin>
+                         <Insets left="50.0" />
+                      </VBox.margin>
+                    </ProgressBar>
+                    <Label fx:id="indicator" alignment="CENTER" contentDisplay="CENTER" minWidth="420" prefHeight="16.0" prefWidth="502.0" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <BorderPane.margin><Insets bottom="10.0" top="5.0" /></BorderPane.margin>
+                        <opaqueInsets><Insets /></opaqueInsets>
+                        <VBox.margin><Insets left="5.0" /></VBox.margin>
+                    </Label>
+                </VBox>
             </center>
             <bottom>
-                <Label fx:id="indicator" minWidth="420" textFill="WHITE" BorderPane.alignment="CENTER">
-                   <BorderPane.margin><Insets bottom="10.0" top="5.0" /></BorderPane.margin>
-                </Label>
+                <BorderPane>
+                    <right>
+                        <Button text="⚙" onAction="#config"/>
+                    </right>
+                </BorderPane>
             </bottom>
         </BorderPane>
     </bottom>

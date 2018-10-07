@@ -9,14 +9,15 @@ import fr.sebastien.criquet.runnable.ImageRunnable;
 import fr.sebastien.criquet.thread.LauncherThread;
 import fr.theshark34.openlauncherlib.util.Saver;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 
 public class MainApplication {
 
@@ -30,9 +31,12 @@ public class MainApplication {
     @FXML private TextField pseudo;
     @FXML private Label indicator;
 
+    public static int SPINNER_VALUE = 1024;
+
     @FXML
     private void initialize() {
         img = Stub.IMAGES;
+
         launcher = new Launcher(this);
         saver = new Saver(new File(launcher.getDir(), "config.json"));
 
@@ -51,7 +55,6 @@ public class MainApplication {
         });
 
         pseudo.setText(saver.get("username"));
-
     }
 
     @FXML
@@ -64,6 +67,16 @@ public class MainApplication {
 
         Thread launch = new LauncherThread(launcher, pseudo.getText(), saver);
         launch.start();
+
+    }
+
+    @FXML
+    private void config() throws IOException {
+        Stage stage = new Stage();
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/ConfigApplication.fxml")));
+        stage.setScene(scene);
+        stage.setTitle("Configuration");
+        stage.showAndWait();
     }
 
     public ProgressBar getProgress() {

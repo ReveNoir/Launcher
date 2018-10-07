@@ -5,7 +5,7 @@ import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 
-public class SupdateThread extends Thread {
+public class ProgressbarThread extends Thread {
 
     private int val;
     private int max;
@@ -13,7 +13,7 @@ public class SupdateThread extends Thread {
     private ProgressBar progress;
     private Label indicator;
 
-    public SupdateThread(ProgressBar progress, Label indicator) {
+    public ProgressbarThread(ProgressBar progress, Label indicator) {
         this.progress = progress;
         this.indicator = indicator;
     }
@@ -21,26 +21,26 @@ public class SupdateThread extends Thread {
     @Override
     public void run() {
         while(!isInterrupted()) {
-            if(BarAPI.getNumberOfFileToDownload() == 0){
-                Platform.runLater(() -> indicator.setText("Verifying files ..."));
-                continue;
+
+            try {
+                Thread.sleep(1000);
+            } catch(InterruptedException e) {
+                e.printStackTrace();
             }
 
-            val = (int) (BarAPI.getNumberOfTotalDownloadedBytes() / 1000);
-            max = (int) (BarAPI.getNumberOfTotalBytesToDownload() / 1000);
+            if(BarAPI.getNumberOfFileToDownload() == 0){
+                Platform.runLater(() -> indicator.setText("Verifying files ..."));
+            }
+
+            val = (int) (BarAPI.getNumberOfTotalDownloadedBytes() / 1024);
+            max = (int) (BarAPI.getNumberOfTotalBytesToDownload() / 1024);
 
             double percent = Math.floor((double) val / max * 1000) / 10;
 
-            System.out.println("avant");
-
             Platform.runLater(() -> {
-                System.out.println("pendant");
-                progress.setProgress((double) val / max);
-                indicator.setText("Download " + BarAPI.getNumberOfDownloadedFiles() + " / " + BarAPI.getNumberOfFileToDownload() + " " + percent);
+                indicator.setText("Download " + BarAPI.getNumberOfDownloadedFiles() + " / " + BarAPI.getNumberOfFileToDownload());
+                progress.setProgress(percent / 100);
             });
-
-            System.out.println("apres");
-
         }
     }
 

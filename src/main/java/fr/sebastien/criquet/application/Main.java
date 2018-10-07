@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import org.apache.log4j.PropertyConfigurator;
@@ -25,6 +26,8 @@ public class Main extends Application {
 
         stage.setTitle("EdeniaCraft Launcher");
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/fxml/MainApplication.fxml"))));
+
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/text/logo.png")));
 
         stage.setOnCloseRequest(__ -> {
             Platform.exit();

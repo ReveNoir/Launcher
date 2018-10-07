@@ -33,6 +33,8 @@ public class LauncherThread extends Thread {
                 alert.setHeaderText(null);
                 alert.show();
             });
+
+
         }
     }
 

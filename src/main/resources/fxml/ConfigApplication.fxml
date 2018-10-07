@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Button?>
+
+<BorderPane stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.sebastien.criquet.view.ConfigApplication">
+    <top>
+        <HBox>
+            <Label text="Nombre de RAM: "/>
+            <Spinner fx:id="spinner"/>
+        </HBox>
+    </top>
+    <center>
+        <Button text="Sauvegarder !" onAction="#save"/>
+    </center>
+</BorderPane>
