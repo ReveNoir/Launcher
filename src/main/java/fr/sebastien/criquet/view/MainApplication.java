@@ -54,7 +54,7 @@ public class MainApplication {
             }
         });
 
-        pseudo.setText(saver.get("username"));
+        pseudo.setText((Main.getConfig().get("data.pseudo") != null ? Main.getConfig().get("data.pseudo") : ""));
     }
 
     @FXML
@@ -68,6 +68,8 @@ public class MainApplication {
         Thread launch = new LauncherThread(launcher, pseudo.getText(), saver);
         launch.start();
 
+        Main.getConfig().set("data.pseudo", pseudo.getText());
+        Main.getConfig().save();
     }
 
     @FXML

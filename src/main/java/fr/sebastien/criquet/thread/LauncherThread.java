@@ -27,6 +27,7 @@ public class LauncherThread extends Thread {
             saver.set("username", username);
             saver.save();
         } catch (Exception e) {
+            e.printStackTrace();
             Main.logger.error(e.getMessage());
             Platform.runLater(() -> {
                 Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage());

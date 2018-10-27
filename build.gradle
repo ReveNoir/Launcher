@@ -12,9 +12,8 @@ apply plugin: 'java'
 repositories {
     mavenLocal()
     mavenCentral()
-    maven {
-        url "http://litarvan.github.io/maven"
-    }
+    maven { url "http://litarvan.github.io/maven" }
+    maven { url 'http://litarvan.github.io/maven' }
 }
 
 dependencies {
@@ -22,6 +21,8 @@ dependencies {
     compile 'fr.theshark34.s-update:s-update:3.1.0-BETA'
     compile 'fr.litarvan:openlauncherlib:3.0.4'
     compile 'fr.litarvan:openauth:1.0.4'
+    compile 'fr.litarvan.commons:litarvan-commons:1.0.0'
+    compile 'com.electronwill.night-config:toml:3.4.0'
 }
 
 apply plugin: 'javafx-gradle-plugin'
@@ -32,4 +33,15 @@ jfx {
 
     // minimal requirement for jfxNative-task
     vendor = 'Sébastien'
+
+    useEnvironmentRelativeExecutables = false
+}
+
+task fatjar(type: Jar) {
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+    with jar
 }
