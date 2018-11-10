@@ -1,5 +1,6 @@
 package fr.sebastien.criquet.model.launcher;
 
+import fr.sebastien.criquet.model.launcher.gametweak.CustomGameTweak;
 import fr.sebastien.criquet.thread.ProgressbarThread;
 import fr.sebastien.criquet.view.ConfigApplication;
 import fr.sebastien.criquet.view.MainApplication;
@@ -15,7 +16,7 @@ import java.util.UUID;
 
 public class Launcher {
 
-    private final String URL = "http://67.205.179.165/edenia/";
+    private final String URL = "http://launcher2.galharim.fr/" ;
 
     private static final GameVersion GAME_VERSION = new GameVersion("1.12", GameType.V1_8_HIGHER);
     private static final GameInfos GAME_INFOS = new GameInfos("edeniacraft", GAME_VERSION, new GameTweak[]{ GameTweak.FORGE });
