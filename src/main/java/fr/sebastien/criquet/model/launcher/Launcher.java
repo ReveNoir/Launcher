@@ -34,7 +34,7 @@ public class Launcher {
     }
 
     public void auth(String username) {
-        authInfos = new AuthInfos(username, "", UUID.randomUUID().toString());
+        authInfos = new AuthInfos(username, "took", UUID.randomUUID().toString());
     }
 
     public void update() throws Exception {
